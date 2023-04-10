@@ -89,4 +89,4 @@ drwxrwxr-x. 2 harlan harlan  6 4月  10 19:52 missing
 
 10.Write a command that reads out your laptop battery’s power level or your desktop machine’s CPU temperature from /sys. Note: if you’re a macOS user, your OS doesn’t have sysfs, so you can skip this exercise.
 
-here is a problem, I use cent os 7, and no such file in my virtual machine, sorry
+Here is a problem, because I use cent os 7 in the virtual machine, and there is no such file.
