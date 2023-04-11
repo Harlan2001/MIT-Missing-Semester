@@ -1,4 +1,4 @@
-1.Read man ls and write an ls command that lists files in the following manner
+1.Read man ls and write an ls command that lists files in the following manner:
 Includes all files, including hidden files
 Sizes are listed in human readable format (e.g. 454M instead of 454279954)
 Files are ordered by recency
@@ -11,6 +11,7 @@ A sample output would look like this
  -rw-r--r--   1 user group 106M Jan 13 12:12 foo
  drwx------+ 47 user group 1.5K Jan 12 18:08 ..
  ```
+ Answer is:
  ```shell
  ls -a
  ls -h
