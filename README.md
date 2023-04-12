@@ -4,3 +4,5 @@ MIT-Missing-Semester is a interesting course that introduce several useful tools
 April 10th: Building a linux Environment on a virtual machine, installing a series of configurations, and learning course1:"Course overview + the shell".
 
 April 11th: Learing course 2: Shell Tools and Scripting and course 3:Editors (Vim)
+
+April 12th: Learning course 4: Data Wrangling  and Course 5: Command-line Environment
