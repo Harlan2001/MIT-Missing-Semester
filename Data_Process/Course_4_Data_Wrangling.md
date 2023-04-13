@@ -3,10 +3,53 @@
 
 2.Find the number of words (in /usr/share/dict/words) that contain at least three as and don’t have a 's ending. What are the three most common last two letters of those words? sed’s y command, or the tr program, may help you with case insensitivity. How many of those two-letter combinations are there? And for a challenge: which combinations do not occur?
 
+For the number of words
+
+```shell
+cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | wc -l
+#854
+```
+
+For the number of conbination
+```shell
+cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq -c | sort | tail -n3
+```
+
+which combination has not occured?
+
+First, we generate a list of all combination:
+
+```shell
+#!/bin/bash
+for i in {a..z};do
+ for j in {a..z};do
+    echo  "$i$j"
+ done
+done
+```
+
+then
+
+```shell
+./all.sh > all.txt
+```
+
+now we compare:
+
+```shell
+cat /usr/share/dict/words | tr "[:upper:]" "[:lower:]" | grep -E "^([^a]*a){3}.*$" | grep -v "'s$" | sed -E "s/.*([a-z]{2})$/\1/" | sort | uniq > occurance.txt
+```
+
+```shell
+diff --unchanged-group-format='' <(cat occurance.txt) <(cat all.txt) | wc -l
+```
+
 
 3.To do in-place substitution it is quite tempting to do something like sed s/REGEX/SUBSTITUTION/ input.txt > input.txt. However this is a bad idea, why? Is this particular to sed? Use man sed to find out how to accomplish this.
 
-
+```shell
+sed -i.bak s/REGEX/SUBSTITUTION/ input.txt
+```
 
 4.Find your average, median, and max system boot time over the last ten boots. Use journalctl on Linux and log show on macOS, and look for log timestamps near the beginning and end of each boot. On Linux, they may look something like:
 
