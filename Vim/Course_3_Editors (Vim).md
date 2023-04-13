@@ -25,11 +25,19 @@
 8. (Advanced) Convert XML to JSON (example file) using Vim macros. Try to do this on your own, but you can look at the macros section above if you get stuck.
 
 Gdd, ggdd deletes the first and last rows
+
 Macro to format the last element (register e)
+
 Jump to line with <name> qe^r"f>s": "<ESC>f<C"<ESC>q
+
 Format a person's macro
+
 Jump to the line with <person> qpS{<ESC>j@eA,<ESC>j@ejS},<ESC>q
+
 A macro that formats one person and then goes to another
+
 Jump to the line with <person> qq@pjq
+
 Execute macro to the end of file 999@q
+
 Manually remove the last, then add the [and] delimiters
